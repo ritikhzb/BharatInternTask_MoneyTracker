@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Money Tracker</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Money Tracker</h1>
+            <nav>
+                <a href="/add" class="btn">Add Transaction</a>
+                <a href="/all-entries" class="btn">View All Transactions</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Recent Transactions</h2>
+            <% transactions.forEach(transaction => { %>
+                <div class="transaction <%= transaction.category.toLowerCase() %>">
+                    <p><strong><%= transaction.category %></strong>: <%= transaction.detail %></p>
+                    <p>Amount: $<%= transaction.amount.toFixed(2) %> | Date: <%= transaction.date.toDateString() %></p>
+                </div>
+            <% }) %>
+        </main>
+    </div>
+</body>
+</html>
